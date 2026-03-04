@@ -17,3 +17,17 @@ for (let index = 1; index <= 12; index++) {
   ImageGallery.appendChild(listItem) // Add the <li> to the <ul> (gallery)
   listItem.appendChild(image) // Add the <img> inside the <li>
 }
+
+/* -------------------------------
+   Open Dialog content and update dialog title, image source and counter
+----------------------------------*/
+function openDialog() {
+  dialogWindows.showModal()
+  var imageName = this.src.substring(this.src.lastIndexOf('/') + 1) // Extract the image file name from the source path
+  var ImageSrc = this.src // Get the source of the clicked image
+  // var currentIndex = this.dataset.index // Get the index of the clicked image from the data attribute
+  currentIndex = Number(this.dataset.index)
+  document.getElementById('dialogTitle').textContent = imageName // Update the dialog title with the image file name
+  document.getElementById('dialogImage').src = ImageSrc // Set the source of the dialog image to the clicked image
+  document.getElementById('counter').textContent = `${currentIndex} / 12` // Update the counter with the current image index and total number of images
+}
