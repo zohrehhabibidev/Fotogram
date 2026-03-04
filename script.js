@@ -31,3 +31,15 @@ function openDialog() {
   document.getElementById('dialogImage').src = ImageSrc // Set the source of the dialog image to the clicked image
   document.getElementById('counter').textContent = `${currentIndex} / 12` // Update the counter with the current image index and total number of images
 }
+
+/* -------------------------------
+   Close Button
+----------------------------------*/
+// Get reference to the <dialog> element
+var dialogWindows = document.getElementById('dialog')
+// Get reference to the close button inside the dialog
+var btnClose = document.getElementById('closeDialog')
+btnClose.addEventListener('click', closeDialog)
+function closeDialog() {
+  dialogWindows.close()
+}
