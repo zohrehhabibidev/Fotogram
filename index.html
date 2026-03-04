@@ -47,5 +47,75 @@
         </section>
       </div>
     </main>
+
+    <!-- dialog container using <dialog> for accessibility -->
+    <dialog id="dialog" class="dialog" aria-dialog="true">
+      <div class="dialogContent">
+        <!-- Header with title and close button -->
+        <div class="dialogHeader">
+          <h2 class="dialogTitle" id="dialogTitle"></h2>
+          <button class="close" id="closeDialog" aria-label="Close dialog">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="currentColor"
+            >
+              <path
+                d="M6.575 7.975L1.675 12.875C1.49167 13.0583 1.25833 13.15 0.975 13.15C0.691667 13.15 0.458333 13.0583 0.275 12.875C0.0916667 12.6917 0 12.4583 0 12.175C0 11.8917 0.0916667 11.6583 0.275 11.475L5.175 6.575L0.275 1.675C0.0916667 1.49167 0 1.25833 0 0.975C0 0.691667 0.0916667 0.458333 0.275 0.275C0.458333 0.0916667 0.691667 0 0.975 0C1.25833 0 1.49167 0.0916667 1.675 0.275L6.575 5.175L11.475 0.275C11.6583 0.0916667 11.8917 0 12.175 0C12.4583 0 12.6917 0.0916667 12.875 0.275C13.0583 0.458333 13.15 0.691667 13.15 0.975C13.15 1.25833 13.0583 1.49167 12.875 1.675L7.975 6.575L12.875 11.475C13.0583 11.6583 13.15 11.8917 13.15 12.175C13.15 12.4583 13.0583 12.6917 12.875 12.875C12.6917 13.0583 12.4583 13.15 12.175 13.15C11.8917 13.15 11.6583 13.0583 11.475 12.875L6.575 7.975Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Figure containing image and optional caption -->
+        <figure class="dialogImageContainer">
+          <img class="dialogImage" id="dialogImage" src="" alt="dialog Image" />
+          <!-- Optional caption -->
+          <!-- <figcaption id="dialogCaption"></figcaption> -->
+        </figure>
+
+        <!-- Controls: previous, counter, next buttons -->
+        <div class="dialogControls">
+          <button
+            class="dialogPrev dialogControl"
+            id="dialogPrev"
+            aria-label="Previous photo"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="19"
+              viewBox="0 0 22 19"
+              fill="currentColor"
+            >
+              <path
+                d="M8.77873 18.6777C9.16926 19.0682 9.80242 19.0682 10.1929 18.6777C10.5835 18.2871 10.5835 17.654 10.1929 17.2635L3.41421 10.4847L20.5815 10.4847C21.1338 10.4847 21.5815 10.037 21.5815 9.48473C21.5815 8.93244 21.1338 8.48473 20.5815 8.48473L3.41533 8.48472L10.1929 1.70711C10.5835 1.31658 10.5835 0.683421 10.1929 0.292895C9.80242 -0.0976287 9.16926 -0.0976287 8.77873 0.292895L0.320144 8.75149C0.123303 8.93411 0.000122925 9.19503 0.0001229 9.48472C0.000122883 9.67363 0.0525006 9.85029 0.143525 10.001C0.184636 10.0692 0.234612 10.1335 0.293454 10.1924L8.77873 18.6777Z"
+              />
+            </svg>
+          </button>
+          <span id="counter" aria-live="polite">1 / 12</span>
+
+          <button
+            class="dialogNext dialogControl"
+            id="dialogNext"
+            aria-label="Next photo"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="19"
+              viewBox="0 0 22 19"
+              fill="currentColor"
+            >
+              <path
+                d="M12.8028 0.292893C12.4123 -0.0976311 11.7791 -0.0976311 11.3886 0.292893C10.9981 0.683417 10.9981 1.31658 11.3886 1.70711L18.1673 8.48584H1C0.447715 8.48584 0 8.93355 0 9.48584C0 10.0381 0.447715 10.4858 1 10.4858H18.1662L11.3886 17.2635C10.9981 17.654 10.9981 18.2871 11.3886 18.6777C11.7791 19.0682 12.4123 19.0682 12.8028 18.6777L21.2614 10.2191C21.4582 10.0364 21.5814 9.77553 21.5814 9.48584C21.5814 9.29694 21.529 9.12027 21.438 8.96957C21.3969 8.90137 21.3469 8.83702 21.2881 8.77817L12.8028 0.292893Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
