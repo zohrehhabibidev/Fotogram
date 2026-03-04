@@ -68,3 +68,16 @@ h1 {
 .galleryGrid img:hover {
 border-color: #4aa0d3;
 }
+
+.footer {
+  width: 100%;
+  height: 128px;
+  background-color: #09212a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footerLogo {
+  width: 225px;
+  height: 65px;
+}
