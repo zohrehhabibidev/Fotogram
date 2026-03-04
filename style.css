@@ -81,3 +81,43 @@ border-color: #4aa0d3;
   width: 225px;
   height: 65px;
 }
+/* dialog container */
+.dialog {
+  /* Hidden by default */
+  position: fixed; /*Fixed position to stay in place and centered on screen */
+  z-index: 1000; /*ensures it appears above all other page content */
+  width: 688px;
+  height: 674px;
+  background-color: #09212a;
+  color: #ffffff;
+  border: 0;
+  border-radius: 40px;
+  padding: 56px 64px;
+  /* top: 50% and left: 50% place the top-left corner of the dialog in the center of the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  /* moves the dialog back by half its width and height */
+}
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialogHeader h2 {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #d9d9d9;
+}
+.dialogImage {
+  width: 560px;
+height: 375px;
+  object-fit: cover;
+}
