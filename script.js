@@ -43,3 +43,38 @@ btnClose.addEventListener('click', closeDialog)
 function closeDialog() {
   dialogWindows.close()
 }
+/* -------------------------------
+   Navigation Buttons
+----------------------------------*/
+var currentIndex = 1
+var totalImages = 12
+
+var btnNext = document.getElementById('dialogNext')
+btnNext.addEventListener('click', showNextImage)
+
+function showNextImage() {
+  if (currentIndex < totalImages) {
+    currentIndex++
+  } else {
+    currentIndex = 1
+  }
+  var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  document.getElementById('dialogImage').src = newPath
+  document.getElementById('dialogTitle').textContent = `photo${currentIndex}.jpg`
+  document.getElementById('counter').textContent = `${currentIndex} / ${totalImages}`
+}
+
+var btnPrev = document.getElementById('dialogPrev')
+
+btnPrev.addEventListener('click', showPreviousImage)
+function showPreviousImage() {
+  if (currentIndex > 1) {
+    currentIndex--
+  } else {
+    currentIndex = totalImages
+  }
+  var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  document.getElementById('dialogImage').src = newPath
+  document.getElementById('dialogTitle').textContent = `photo${currentIndex}.jpg`
+  document.getElementById('counter').textContent = `${currentIndex} / ${totalImages}`
+}
