@@ -121,3 +121,44 @@ border-color: #4aa0d3;
 height: 375px;
   object-fit: cover;
 }
+/* -------------------------------
+   Close Button for dialog (with SVG)
+   - Default, Hover, and Pressed States
+----------------------------------*/
+
+/* Default state */
+.close {
+  width: 30px; /* Button width */
+  height: 30px; /* Button height */
+  padding: 4px; /* Inner spacing */
+  border-radius: 50%; /* Make the button circular */
+  background: transparent; /* Default background */
+  color: #d9d9d9; /* Button content color (affects SVG with fill="currentColor") */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  transition: background 0.3s, color 0.3s; /* Smooth hover and active animations */
+}
+
+/* SVG inside the button */
+.close svg {
+  width: 14px; /* SVG width */
+  height: 14px; /* SVG height */
+  display: block; /* Remove extra space under SVG */
+  pointer-events: none; /* Prevent clicking on SVG itself; button handles it */
+  fill: currentColor; /* Use button's color for SVG fill */
+}
+
+/* Hover state */
+.close:hover {
+  background-color: #124658; /* Background on hover */
+  color: #ffffff; /* Changes SVG color on hover */
+}
+
+/* Pressed / Active state */
+.close:active {
+  background-color: #0d3240; /* Slightly darker background when pressed */
+  color: #ffffff; /* SVG stays white when pressed */
+}
