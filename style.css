@@ -162,3 +162,44 @@ height: 375px;
   background-color: #0d3240; /* Slightly darker background when pressed */
   color: #ffffff; /* SVG stays white when pressed */
 }
+.dialogImageContainer {
+  width: 560px;
+  height: 374px;
+}
+.dialogControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+}
+.dialogControl {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  color: #fd5b4f; /* SVG will inherit this color */
+  background-color: #21272e;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  line-height: 1;
+}
+
+.dialogControl:hover {
+  background-color: rgb(55, 37, 40);
+}
+
+.dialogControl svg {
+  width: 24px; /* Adjust SVG size */
+  height: 24px;
+  display: block;
+  pointer-events: none;
+  fill: currentColor; /* Use button color for SVG */
+}
+#counter {
+  font-family: 'Figtree', sans-serif;
+}
