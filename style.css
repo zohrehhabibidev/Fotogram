@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+.header {
+  width: 100%;
+  background-color: #09212a;
+}
+.headerMaxWidth {
+  box-sizing: border-box;
+  background-color: #09212a;
+  max-width: 1440px;
+  height: 81px;
+  padding: 20px 140px 20px 241px;
+}
+.headerLogo {
+  width: 215px;
+  height: 41px;
+}
