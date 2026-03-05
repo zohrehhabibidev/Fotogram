@@ -39,42 +39,58 @@ function openDialog() {
 var dialogWindows = document.getElementById('dialog')
 // Get reference to the close button inside the dialog
 var btnClose = document.getElementById('closeDialog')
+// When the close button is clicked, run the closeDialog function
 btnClose.addEventListener('click', closeDialog)
+// Function to close the dialog window
 function closeDialog() {
-  dialogWindows.close()
+  dialogWindows.close()// Call the function to close the dialog
 }
 /* -------------------------------
    Navigation Buttons
 ----------------------------------*/
+// Store the current image number
 var currentIndex = 1
+// Total number of images in the gallery
 var totalImages = 12
-
+// Get reference to the "Next" button
 var btnNext = document.getElementById('dialogNext')
+// When the next button is clicked, show the next image
 btnNext.addEventListener('click', showNextImage)
-
+// Function to show the next image
 function showNextImage() {
+  // Check if the current image is less than the total images
   if (currentIndex < totalImages) {
-    currentIndex++
+    currentIndex++ // Go to the next image
   } else {
-    currentIndex = 1
+    currentIndex = 1 // If it is the last image, go back to the first
   }
+  // Create the new image path
   var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  // Update the image inside the dialog with the new path
   document.getElementById('dialogImage').src = newPath
+  // Update the dialog title with the image name
   document.getElementById('dialogTitle').textContent = `photo${currentIndex}.jpg`
+  // Update the image counter with the current index and total images
   document.getElementById('counter').textContent = `${currentIndex} / ${totalImages}`
 }
-
+// Get reference to the "Previous" button
 var btnPrev = document.getElementById('dialogPrev')
-
+// When the previous button is clicked, show the previous image
 btnPrev.addEventListener('click', showPreviousImage)
+// Function to show the previous image
 function showPreviousImage() {
+  // Check if the current image number is greater than 1
   if (currentIndex > 1) {
-    currentIndex--
+    currentIndex-- // Go to the previous image
   } else {
-    currentIndex = totalImages
+    currentIndex = totalImages  // If it is the first image, go to the last
   }
+  // Create the new image path
   var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  // Update the image inside the dialog
   document.getElementById('dialogImage').src = newPath
+  // Update the dialog title with the image name
   document.getElementById('dialogTitle').textContent = `photo${currentIndex}.jpg`
+  // Update the image counter
   document.getElementById('counter').textContent = `${currentIndex} / ${totalImages}`
 }
