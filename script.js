@@ -1,14 +1,12 @@
 /* -------------------------------
   create the image gallery
 ----------------------------------*/
-var ImageGallery = document.getElementById('galleryList')
-
-var ImageSrc = this.src // Get the source of the clicked image
+const ImageGallery = document.getElementById('galleryList')
 
 // Loop from 1 to 12 for the gallery images
 for (let index = 1; index <= 12; index++) {
-  var listItem = document.createElement('li') // Create a new <li> element in each iteration
-  var image = document.createElement('img') // Create a new <img> element in each iteration
+  const listItem = document.createElement('li') // Create a new <li> element in each iteration
+  const image = document.createElement('img') // Create a new <img> element in each iteration
   image.classList.add('openDialog') // Add the class "openDialog" to the <li> for styling and event handling
   image.addEventListener('click', openDialog)
   image.src = `./Assets/galleryImage/photo${index}.jpg` // Set the source path of the image
@@ -23,8 +21,8 @@ for (let index = 1; index <= 12; index++) {
 ----------------------------------*/
 function openDialog() {
   dialogWindows.showModal()
-  var imageName = this.src.substring(this.src.lastIndexOf('/') + 1) // Extract the image file name from the source path
-  var ImageSrc = this.src // Get the source of the clicked image
+  const imageName = this.src.substring(this.src.lastIndexOf('/') + 1) // Extract the image file name from the source path
+  const ImageSrc = this.src // Get the source of the clicked image
   // var currentIndex = this.dataset.index // Get the index of the clicked image from the data attribute
   currentIndex = Number(this.dataset.index)
   document.getElementById('dialogTitle').textContent = imageName // Update the dialog title with the image file name
@@ -36,9 +34,9 @@ function openDialog() {
    Close Button
 ----------------------------------*/
 // Get reference to the <dialog> element
-var dialogWindows = document.getElementById('dialog')
+let dialogWindows = document.getElementById('dialog')
 // Get reference to the close button inside the dialog
-var btnClose = document.getElementById('closeDialog')
+let btnClose = document.getElementById('closeDialog')
 // When the close button is clicked, run the closeDialog function
 btnClose.addEventListener('click', closeDialog)
 // Function to close the dialog window
@@ -48,12 +46,12 @@ function closeDialog() {
 /* -------------------------------
    Navigation Buttons
 ----------------------------------*/
-// Store the current image number
-var currentIndex = 1
+// Store the current image number (change the content of this variable when the user clicks on an image in the gallery)
+let currentIndex = 1
 // Total number of images in the gallery
-var totalImages = 12
+const totalImages = 12
 // Get reference to the "Next" button
-var btnNext = document.getElementById('dialogNext')
+const btnNext = document.getElementById('dialogNext')
 // When the next button is clicked, show the next image
 btnNext.addEventListener('click', showNextImage)
 // Function to show the next image
@@ -65,7 +63,7 @@ function showNextImage() {
     currentIndex = 1 // If it is the last image, go back to the first
   }
   // Create the new image path
-  var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  let newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
   // Update the image inside the dialog with the new path
   document.getElementById('dialogImage').src = newPath
   // Update the dialog title with the image name
@@ -74,7 +72,7 @@ function showNextImage() {
   document.getElementById('counter').textContent = `${currentIndex} / ${totalImages}`
 }
 // Get reference to the "Previous" button
-var btnPrev = document.getElementById('dialogPrev')
+let btnPrev = document.getElementById('dialogPrev')
 // When the previous button is clicked, show the previous image
 btnPrev.addEventListener('click', showPreviousImage)
 // Function to show the previous image
@@ -86,7 +84,7 @@ function showPreviousImage() {
     currentIndex = totalImages  // If it is the first image, go to the last
   }
   // Create the new image path
-  var newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
+  let newPath = `./Assets/galleryImage/photo${currentIndex}.jpg`
   // Update the image inside the dialog
   document.getElementById('dialogImage').src = newPath
   // Update the dialog title with the image name
