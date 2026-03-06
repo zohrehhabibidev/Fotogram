@@ -49,8 +49,8 @@ btnClose.addEventListener('click', closeDialog)
 function closeDialog() {
   dialogWindows.close()// Call the function to close the dialog
 }
-window.onclick = function (event) {
-  if (event.target == dialogWindows) {
+window.onclick = function (clickOutside) { // Close the dialog when clicking outside of it
+  if (clickOutside.target == dialogWindows) {
     dialogWindows.close()
   }
 }
