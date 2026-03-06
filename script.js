@@ -43,6 +43,12 @@ btnClose.addEventListener('click', closeDialog)
 function closeDialog() {
   dialogWindows.close()// Call the function to close the dialog
 }
+window.onclick = function (event) {
+  if (event.target == dialogWindows) {
+    dialogWindows.close()
+  }
+}
+
 /* -------------------------------
    Navigation Buttons
 ----------------------------------*/
