@@ -12,6 +12,12 @@ for (let index = 1; index <= 12; index++) {
   image.src = `./Assets/galleryImage/photo${index}.jpg` // Set the source path of the image
   image.alt = `photo number ${index} from gallery` // Set the alt text for accessibility
   image.dataset.index = index // Store the index of the image in a data attribute for later use
+  image.tabIndex = 0;
+  image.addEventListener('keydown', function (keyOpenDialog) {     // Open the dialog when the image is focused and Enter or Space is pressed
+    if (keyOpenDialog.key === 'Enter' || keyOpenDialog.key == ' ') { // Check if the pressed key is Enter 'Enter' or Space ' '
+      openDialog.call(this); // Call openDialog on this specific image
+    }
+  })
   ImageGallery.appendChild(listItem) // Add the <li> to the <ul> (gallery)
   listItem.appendChild(image) // Add the <img> inside the <li>
 }
