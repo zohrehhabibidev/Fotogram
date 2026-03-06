@@ -42,10 +42,14 @@
   gap: 160px;
   color: #ffffff;
 }
-h1 {
-  font-family: 'Figtree', sans-serif;
+.maxWidthMainContent h1 {
+font-family: 'Figtree', sans-serif;
   font-weight: 800;
   font-size: 56px;
+  line-height: 67px;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0 auto;
 }
 .galleryGrid {
   display: flex;
@@ -223,5 +227,28 @@ height: 375px;
     width: 168px;
     height: 32px;
     margin-left: 0;
+  }
+  .maxWidthMainContent h1 {
+        font-weight: 800;
+        font-size: 48px;
+  }
+  /* .maxWidthMainContent {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+  } */
+  }
+
+@media (min-width: 500px) and (max-width: 780px) {
+  .maxWidthMainContent h1 {
+    font-size: 56px;
+    line-height: 67px;
+    width: auto;
+    max-width: 696px;
+    text-align: center;
+    margin: 0 auto;
   }
 }
