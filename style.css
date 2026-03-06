@@ -10,15 +10,19 @@
   background-color: #09212a;
 }
 .headerMaxWidth {
-  box-sizing: border-box;
-  background-color: #09212a;
+ box-sizing: border-box;
   max-width: 1440px;
   height: 81px;
-  padding: 20px 140px 20px 241px;
+  padding: 20px 140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .headerLogo {
   width: 215px;
   height: 41px;
+  margin-left: 0;
 }
 .mainContent {
   background-color: #06171e;
@@ -207,4 +211,17 @@ height: 375px;
 }
 #counter {
   font-family: 'Figtree', sans-serif;
+}
+
+@media (max-width: 500px) {
+  .headerMaxWidth {
+    padding: 28px 96px;
+    height: 80px;
+    justify-content: center;
+  }
+  .headerLogo {
+    width: 168px;
+    height: 32px;
+    margin-left: 0;
+  }
 }
