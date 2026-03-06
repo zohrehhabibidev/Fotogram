@@ -232,15 +232,12 @@ height: 375px;
         font-weight: 800;
         font-size: 48px;
   }
-  /* .maxWidthMainContent {
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 0;
-  } */
+  .maxWidthMainContent {
+        margin-top: 40px;
+        gap: 56px;
   }
+  }
+
 
 @media (min-width: 500px) and (max-width: 780px) {
   .maxWidthMainContent h1 {
