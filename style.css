@@ -99,26 +99,24 @@ main {
 }
 /* dialog container */
 .dialog {
-  z-index: 1000;
-  /* width: min(688px, 90vw);
-  max-height: 90vh; */
   width: 90%;
   max-width: 600px;
   background-color: #09212a;
-  color: #ffffff;
   border: 0;
   border-radius: 40px;
-  padding: 56px 64px;
   margin: auto;
   overflow: hidden;
+  color: #ffffff;
 }
 
 .dialogContent {
+  padding: 56px 64px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 48px;
 }
+
 .dialogHeader {
   display: flex;
   justify-content: space-between;
@@ -274,9 +272,7 @@ body:has(dialog[open]) {
   }
 
   .dialogContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 32px 16px;
     gap: 24px;
   }
 
@@ -355,7 +351,6 @@ figure {
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
-
 }
 .dialogImage {
   width: 100%;

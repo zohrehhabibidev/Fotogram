@@ -1,99 +1,99 @@
-let currentIndex = 1
-const totalImages = 12
-
+const mygallery = [
+  'photo1',
+  'photo2',
+  'photo3',
+  'photo4',
+  'photo5',
+  'photo6',
+  'photo7',
+  'photo8',
+  'photo9',
+  'photo10',
+  'photo11',
+  'photo12'
+]
 const imageGallery = document.getElementById('galleryList')
-const dialogWindows = document.getElementById('dialog')
+const dialogWindow = document.getElementById('dialog')
 const dialogImage = document.getElementById('dialogImage')
 const dialogTitle = document.getElementById('dialogTitle')
 const counter = document.getElementById('counter')
+const dialogContent = document.getElementById('dialogContent')
 
 const btnClose = document.getElementById('closeDialog')
 const btnNext = document.getElementById('dialogNext')
 const btnPrev = document.getElementById('dialogPrev')
+let imageName = ''
+let currentIndex = ''
 
 /* -------------------------------
   Generate gallery images with innerHTML
 ----------------------------------*/
+function init() {
+  renderImages()
+}
 
-for (let index = 1; index <= totalImages; index++) {
-  imageGallery.innerHTML += `
+function renderImages() {
+  for (let index = 0; index < mygallery.length; index++) {
+    imageGallery.innerHTML += `
     <li>
       <img
-        src="./assets/galleryImage/photo${index}.jpg"
+        src="./assets/galleryImage/${mygallery[index]}.jpg"
         alt="photo number ${index} from gallery"
         class="openDialog"
-        data-index="${index}"
+        id="${index}"
         tabindex="0"
+        onclick='openDialog(${index})'
+        }
       >
     </li>
   `
+  }
 }
-
-/* -------------------------------
-  Add event listeners for all images
-----------------------------------*/
-const galleryImages = document.querySelectorAll('.openDialog')
-
-galleryImages.forEach(img => {
-  img.addEventListener('click', openDialog)
-  img.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' || e.code === 'Space') {
-      e.preventDefault()
-      openDialog.call(this)
-    }
-  })
-})
 
 /* -------------------------------
   Open Dialog
 ----------------------------------*/
-function openDialog() {
-  dialogWindows.showModal()
-  currentIndex = Number(this.dataset.index)
-  dialogImage.src = this.src
-  const imageName = this.src.split('/').pop()
+function openDialog(i) {
+  currentIndex = i
+  dialogImage.src = `./assets/galleryImage/${mygallery[currentIndex]}.jpg`
+  imageName = mygallery[currentIndex]
   dialogTitle.textContent = imageName
   updateCounter()
-  document.body.style.overflowY = 'hidden' // prevent background scroll
+  dialogWindow.showModal()
 }
 
 /* -------------------------------
   Close Dialog
 ----------------------------------*/
-btnClose.addEventListener('click', () => {
-  dialogWindows.close()
-  document.body.style.overflowY = 'auto'
-})
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    dialogWindows.close()
-    document.body.style.overflowY = 'auto'
-  }
-})
+function closeBtn() {
+  dialogWindow.close()
+}
 
 // close when clicking outside dialog content
-dialogWindows.addEventListener('click', function (event) {
-  if (event.target === dialogWindows) {
-    // only if click on backdrop
-    dialogWindows.close()
-    document.body.style.overflowY = 'auto'
+dialog.onclick = function (clickEvent) {
+  if (clickEvent.target === dialog) {
+    dialog.close()
   }
-})
-
+}
 /* -------------------------------
   Navigation Buttons
 ----------------------------------*/
-btnNext.addEventListener('click', showNextImage)
-btnPrev.addEventListener('click', showPreviousImage)
-
 function showNextImage() {
-  currentIndex = currentIndex < totalImages ? currentIndex + 1 : 1
+  if (currentIndex < mygallery.length - 1) {
+    currentIndex = currentIndex + 1
+  } else {
+    currentIndex = 0
+  }
+
   updateDialogImage()
 }
 
 function showPreviousImage() {
-  currentIndex = currentIndex > 1 ? currentIndex - 1 : totalImages
+  if (currentIndex > 0) {
+    currentIndex = currentIndex - 1
+  } else {
+    currentIndex = mygallery.length - 1
+  }
   updateDialogImage()
 }
 
@@ -101,20 +101,12 @@ function showPreviousImage() {
   Update Dialog Content
 ----------------------------------*/
 function updateDialogImage() {
-  dialogImage.src = `./assets/galleryImage/photo${currentIndex}.jpg`
-  dialogTitle.textContent = `photo${currentIndex}.jpg`
+  dialogImage.src = `./assets/galleryImage/${mygallery[currentIndex]}.jpg`
+  imageName = mygallery[currentIndex]
+  dialogTitle.textContent = imageName
   updateCounter()
 }
 
 function updateCounter() {
-  counter.textContent = `${currentIndex} / ${totalImages}`
+  counter.textContent = `${currentIndex + 1} / ${mygallery.length}`
 }
-
-/* -------------------------------
-  Keyboard Navigation
-----------------------------------*/
-document.addEventListener('keydown', event => {
-  if (!dialogWindows.open) return
-  if (event.key === 'ArrowRight') showNextImage()
-  if (event.key === 'ArrowLeft') showPreviousImage()
-})
